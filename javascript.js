@@ -34,14 +34,7 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-        humanScore++;
-        console.log(`You win! ${humanChoice.charAt(0) + humanChoice.slice(1)} beats ${computerChoice}.`);
-    } 
-    else {
-        computerScore++;
-        console.log(`You lose! ${computerChoice.charAt(0) + computerChoice.slice(1)} beats ${humanChoice}.`);
-    }
+    
 }
 
 const humanChoice = getHumanChoice();
