@@ -27,24 +27,34 @@
             display
         </p>
     </div>
-
-    <div class="game">
-        <label for="Select one">Select One: </label>
-        <select id="Select one">
+<!--
+<div class="game">
+        <label for="select one">Select One: </label>
+        <select id="select one">
             <option value="">--Make a choice--</option>
             <option value="rock">Rock</option>
             <option value="paper">Paper</option>
             <option value="scissors">Scissors</option>
         </select>
     
-        <label for="Computer select"> Computer Select: </label>
-        <select id="Computer select">
-            <option value="">--Random--</option>
-            <option value="rock">Rock</option>
-            <option value="paper">Paper</option>
-            <option value="scissors">Scissors</option>
+        <label for="computer select"> Computer Select: </label>
+        <select id="computer select">
+            <option text="">--Random--</option>
+            <option text="rock">Rock</option>
+            <option text="paper">Paper</option>
+            <option text="scissors">Scissors</option>
         </select>
     </div>
+    ) {
+        humanScore++;
+        console.log(`You win! ${humanChoice.charAt(0) + humanChoice.slice(1)} beats ${computerChoice}.`);
+    } 
+    else {
+        computerScore++;
+        console.log(`You lose! ${computerChoice.charAt(0) + computerChoice.slice(1)} beats ${humanChoice}.`);
+    }
+    -->
+    
 
 </body>
 
