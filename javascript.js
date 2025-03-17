@@ -36,6 +36,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
+
     const humanChoice1 = getHumanChoice();
     const computerChoice1 = getComputerChoice();
     playRound(humanChoice1, computerChoice1);
@@ -69,8 +70,3 @@ function playGame() {
 }
 
 playGame();
-
-
-
-
-
