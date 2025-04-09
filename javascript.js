@@ -12,30 +12,70 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let userChoice = prompt("Please write rock, paper, or scissors:");
-    return userChoice;
-}
-
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
+    // Get the result text element, score element, and winner element
+    const resultText = document.getElementById("resultText");
+    const scoreText = document.getElementById("score");
+    const winnerText = document.getElementById("winner");
+
+    // Check the result of the round
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!" + " " +computerChoice);
+        resultText.textContent = `It's a tie! Both chose ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
-        console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
+        resultText.textContent = `You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
     } else {
         computerScore++;
-        console.log(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
+        resultText.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
+    }
+
+    // Update the score display
+    scoreText.textContent = `Score - You: ${humanScore} | Computer: ${computerScore}`;
+
+    // Check if anyone has reached 5 points
+    if (humanScore === 5) {
+        winnerText.textContent = "Congratulations! You won the game!";
+        resetGame(); // Reset the game for a new round
+    } else if (computerScore === 5) {
+        winnerText.textContent = "Oops! The computer won the game!";
+        resetGame(); // Reset the game for a new round
     }
 }
 
-function playGame() {
+function resetGame() {
+    // Reset scores and update the score display
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("score").textContent = `Score - You: ${humanScore} | Computer: ${computerScore}`;
+    document.getElementById("resultText").textContent = "Choose your option!";
+    document.getElementById("winner").textContent = "";
+}
+
+// Wait until the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll(".buttons button");
+
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            const humanChoice = button.textContent.toLowerCase();
+            const computerChoice = getComputerChoice();
+            playRound(humanChoice, computerChoice);
+        });
+    });
+});
+
+
+
+
+
+
+/*function playGame() 
 
     const humanChoice1 = getHumanChoice();
     const computerChoice1 = getComputerChoice();
@@ -69,4 +109,4 @@ function playGame() {
     }
 }
 
-playGame();
+playGame(); */

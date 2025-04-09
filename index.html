@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--External link for javascript-->
-    <script src="javascript.js"></script>
 
     <!--External link for css-->
     <link rel="stylesheet" href="styles.css">
@@ -19,10 +17,24 @@
         <h1>
             Rock-Paper-Scissors Game
         </h1>
- 
-       
     </div>
-    
+
+    <div class="buttons">
+        <button class="button-Rock">Rock</button>
+        <button class="button-Paper">Paper</button>
+        <button class="button-Scissors">Scissors</button>
+    </div>
+
+    <div class="results">
+        <h2>Results:</h2>
+        <p id="resultText">Choose your option!</p>
+        <p id="score">Score - You: 0 | Computer: 0</p>
+        <p id="winner"></p> 
+    </div>
+
+    <!--External link for javascript-->
+    <script src="javascript.js" defer></script>
+
 </body>
 
 </html>
