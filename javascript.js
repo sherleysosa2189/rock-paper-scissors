@@ -15,12 +15,10 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
-    // Get the result text element, score element, and winner element
     const resultText = document.getElementById("resultText");
     const scoreText = document.getElementById("score");
     const winnerText = document.getElementById("winner");
 
-    // Check the result of the round
     if (humanChoice === computerChoice) {
         resultText.textContent = `It's a tie! Both chose ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
     } else if (
@@ -35,21 +33,19 @@ function playRound(humanChoice, computerChoice) {
         resultText.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
     }
 
-    // Update the score display
     scoreText.textContent = `Score - You: ${humanScore} | Computer: ${computerScore}`;
 
-    // Check if anyone has reached 5 points
     if (humanScore === 5) {
         winnerText.textContent = "Congratulations! You won the game!";
-        resetGame(); // Reset the game for a new round
+        resetGame(); 
     } else if (computerScore === 5) {
         winnerText.textContent = "Oops! The computer won the game!";
-        resetGame(); // Reset the game for a new round
+        resetGame(); 
     }
 }
 
 function resetGame() {
-    // Reset scores and update the score display
+    
     humanScore = 0;
     computerScore = 0;
     document.getElementById("score").textContent = `Score - You: ${humanScore} | Computer: ${computerScore}`;
